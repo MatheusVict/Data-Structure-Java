@@ -76,6 +76,32 @@ public class Vector {
         return false;
     }
 
+    /*
+     *
+     * vector[1] = vector[2]
+     * vector[2] = vector[3]
+     * vector[3] = vector[4]
+     * */
+    public void remove(int position) {
+        if (!(position >= 0 && position < size)) {
+            throw new IllegalArgumentException("invalid position");
+        }
+
+        for (int i = position; i < size - 1; i++) {
+            this.elements[i] = this.elements[i+1];
+        }
+        this.size--;
+    }
+
+    public void remove(String element) {
+        int elementIndex = this.search(element);
+
+        for (int i = elementIndex; i< size -1; i++) {
+            this.elements[i] = this.elements[i+1];
+        }
+        this.size--;
+    }
+
     public int getSize() {
         return this.size;
     }
@@ -102,7 +128,7 @@ public class Vector {
     private void increaseCapacity() {
         if (this.size == this.elements.length) {
             String[] NewsElements = new String[this.elements.length * 2];
-            for (int i=0; i<this.elements.length; i++) {
+            for (int i = 0; i < this.elements.length; i++) {
                 NewsElements[i] = this.elements[i];
             }
             this.elements = NewsElements;

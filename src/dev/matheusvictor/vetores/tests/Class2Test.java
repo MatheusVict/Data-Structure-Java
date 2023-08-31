@@ -20,5 +20,10 @@ public class Class2Test {
         System.out.println(vector.search(1));
         System.out.println(vector.search("uepa4"));
 
+        vector.remove(2);
+        System.out.println(vector);
+
+        vector.remove("rapaz");
+        System.out.println(vector);
     }
 }
