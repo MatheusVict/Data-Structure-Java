@@ -42,6 +42,10 @@ public class Lista<T> {
         return false;
     }
 
+    public boolean contains(T element) {
+        return search(element) > -1;
+    }
+
 
     // add in a position
     public boolean add(int position, T element) {
