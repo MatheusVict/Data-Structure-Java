@@ -26,7 +26,7 @@ public class ObjectVectorTest {
             System.out.println("Element doesn't exist");
         }
 
-        System.out.println("size: "+ objectVector.getSize());
+        System.out.println("size: " + objectVector.getSize());
         System.out.println(objectVector);
     }
 }
