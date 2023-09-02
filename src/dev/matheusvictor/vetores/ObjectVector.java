@@ -1,22 +1,22 @@
 package dev.matheusvictor.vetores;
 
-public class Vector {
-    private String[] elements;
+public class ObjectVector {
+    private Object[] elements;
     private int size;
 
-    public Vector(int capacity) {
-        this.elements = new String[capacity];
+    public ObjectVector(int capacity) {
+        this.elements = new Object[capacity];
         this.size = 0;
     }
 
-    public String search(int position) {
+    public Object search(int position) {
         if (!(position >= 0 && position < size)) {
             throw new IllegalArgumentException("invalid position");
         }
         return this.elements[position];
     }
 
-    public int search(String element) {
+    public int search(Object element) {
         for (int i = 0; i < this.size; i++) {
             if (this.elements[i].equals(element)) {
                 return i;
@@ -26,7 +26,7 @@ public class Vector {
     }
 
     // Adding by element
-    public boolean add(String element) {
+    public boolean add(Object element) {
         this.increaseCapacity();
         if (this.size < this.elements.length) {
             this.elements[this.size] = element;
@@ -38,7 +38,7 @@ public class Vector {
 
 
     // add in a position
-    public boolean add(int position, String element) {
+    public boolean add(int position, Object element) {
         this.increaseCapacity();
         if (!(position >= 0 && position < size)) {
             throw new IllegalArgumentException("invalid position");
@@ -75,7 +75,7 @@ public class Vector {
         this.size--;
     }
 
-    public void remove(String element) {
+    public void remove(Object element) {
         int elementIndex = this.search(element);
 
         for (int i = elementIndex; i < size - 1; i++) {
@@ -109,7 +109,7 @@ public class Vector {
 
     private void increaseCapacity() {
         if (this.size == this.elements.length) {
-            String[] NewsElements = new String[this.elements.length * 2];
+            Object[] NewsElements = new Object[this.elements.length * 2];
             for (int i = 0; i < this.elements.length; i++) {
                 NewsElements[i] = this.elements[i];
             }
