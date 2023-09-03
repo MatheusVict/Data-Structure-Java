@@ -15,7 +15,7 @@ public class Lista<T> {
         this.elements = (T[]) Array.newInstance(classType, capacity);
         this.size = 0;
     }
-    public Object search(int position) {
+    public T search(int position) {
         if (!(position >= 0 && position < size)) {
             throw new IllegalArgumentException("invalid position");
         }
@@ -44,6 +44,13 @@ public class Lista<T> {
 
     public boolean contains(T element) {
         return search(element) > -1;
+    }
+
+    public void clear() {
+        for (int i=0; i<this.size;i++) {
+            this.elements[i] = null;
+        }
+        this.size = 0;
     }
 
 
