@@ -15,6 +15,11 @@ public class Pilha<T> extends StaticStructure<T> {
     }
 
 
+    public void heap(T element) {
+        super.increaseCapacity();
+
+        super.add(element);
+    }
 
 
 }
