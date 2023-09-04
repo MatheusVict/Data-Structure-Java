@@ -2,8 +2,6 @@ package dev.matheusvictor.vetores.labs;
 
 import dev.matheusvictor.vetores.Lista;
 
-import java.util.ArrayList;
-
 public class Exercises {
     public static void main(String[] args) {
         Lista<String> lista = new Lista<String>(10);

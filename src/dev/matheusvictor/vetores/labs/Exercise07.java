@@ -3,13 +3,14 @@ package dev.matheusvictor.vetores.labs;
 import dev.matheusvictor.vetores.Lista;
 import dev.matheusvictor.vetores.tests.Contact;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Exercise06 {
+public class Exercise07 extends Exercise06 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Lista<Contact> contactLista = new Lista<Contact>(20);
+        ArrayList<Contact> contactLista = new ArrayList<>(20);
         System.out.println("Get how many contacts I should add");
 
         createManyContacts(5, contactLista);
@@ -62,25 +63,25 @@ public class Exercise06 {
 
     }
 
-    private static void printVector(Lista<Contact> contactLista) {
+    private static void printVector(ArrayList<Contact> contactLista) {
         System.out.println("Contact list here: " + contactLista);
     }
 
-    private static void clearVector(Lista<Contact> contactLista) {
+    private static void clearVector(ArrayList<Contact> contactLista) {
         contactLista.clear();
 
-        System.out.println("Vector cleaned up: " + contactLista.getSize());
+        System.out.println("Vector cleaned up: " + contactLista.size());
     }
 
-    private static void getVectorSize(Lista<Contact> contactLista) {
-        System.out.println("The vector size is: " + contactLista.getSize());
+    private static void getVectorSize(ArrayList<Contact> contactLista) {
+        System.out.println("The vector size is: " + contactLista.size());
     }
 
-    private static void delete(Scanner scanner, Lista<Contact> contactLista) {
+    private static void delete(Scanner scanner, ArrayList<Contact> contactLista) {
         int position = getInformationInt("Which position do you wanna remove a contact?", scanner);
 
         try {
-            Contact contact = contactLista.search(position);
+            Contact contact = contactLista.remove(position);
 
             contactLista.remove(contact);
             System.out.println("Contact removed");
@@ -89,7 +90,7 @@ public class Exercise06 {
         }
     }
 
-    private static void deleteByIndex(Scanner scanner, Lista<Contact> contactLista) {
+    private static void deleteByIndex(Scanner scanner, ArrayList<Contact> contactLista) {
         int position = getInformationInt("Which position do you wanna remove a contact?", scanner);
 
         try {
@@ -100,11 +101,11 @@ public class Exercise06 {
         }
     }
 
-    private static void contactExists(Scanner scanner, Lista<Contact> contactLista) {
+    private static void contactExists(Scanner scanner, ArrayList<Contact> contactLista) {
         int position = getInformationInt("Which position do you wanna get a contact?", scanner);
 
         try {
-            Contact contact = contactLista.search(position);
+            Contact contact = contactLista.get(position);
             System.out.println("Contact: " + contact);
 
             System.out.println("searching");
@@ -118,15 +119,15 @@ public class Exercise06 {
         }
     }
 
-    private static void getLastIndex(Scanner scanner, Lista<Contact> contactLista) {
+    private static void getLastIndex(Scanner scanner, ArrayList<Contact> contactLista) {
         int position = getInformationInt("Which position do you wanna get a contact?", scanner);
 
         try {
-            Contact contact = contactLista.search(position);
+            Contact contact = contactLista.get(position);
             System.out.println("Contact: " + contact);
 
             System.out.println("searching");
-            position = contactLista.search(contact);
+            position = contactLista.lastIndexOf(contact);
 
             System.out.println("Contact found on last index " + position);
         } catch (Exception e) {
@@ -134,15 +135,15 @@ public class Exercise06 {
         }
     }
 
-    private static void getContact(Scanner scanner, Lista<Contact> contactLista) {
+    private static void getContact(Scanner scanner, ArrayList<Contact> contactLista) {
         int position = getInformationInt("Which position do you wanna get a contact?", scanner);
 
         try {
-            Contact contact = contactLista.search(position);
+            Contact contact = contactLista.get(position);
             System.out.println("Contact: " + contact);
 
             System.out.println("searching");
-            position = contactLista.search(contact);
+            position = contactLista.lastIndexOf(contact);
 
             System.out.println("Contact found on " + position);
         } catch (Exception e) {
@@ -150,18 +151,18 @@ public class Exercise06 {
         }
     }
 
-    private static void getContactByPosition(Scanner scanner, Lista<Contact> contactLista) {
+    private static void getContactByPosition(Scanner scanner, ArrayList<Contact> contactLista) {
         int position = getInformationInt("Which position do you wanna get a contact?", scanner);
 
         try {
-            Contact contact = contactLista.search(position);
+            Contact contact = contactLista.get(position);
             System.out.println("Contact: " + contact);
         } catch (Exception e) {
             System.out.println("invalid position");
         }
     }
 
-    private static void addAtEndIndex(Scanner scanner, Lista<Contact> contacts) {
+    private static void addAtEndIndex(Scanner scanner, ArrayList<Contact> contacts) {
         System.out.println("Adding a new contact...");
         String name = getInformation("write a name", scanner);
         String phone = getInformation("Write a tell", scanner);
@@ -174,7 +175,7 @@ public class Exercise06 {
         System.out.println("Contact add");
     }
 
-    private static void addAtPosition(Scanner scanner, Lista<Contact> contacts) {
+    private static void addAtPosition(Scanner scanner, ArrayList<Contact> contacts) {
         System.out.println("Adding a new contact...");
         String name = getInformation("write a name", scanner);
         String phone = getInformation("Write a tell", scanner);
@@ -195,59 +196,7 @@ public class Exercise06 {
         System.out.println(contact);
     }
 
-    protected static String getInformation(String message, Scanner scanner) {
-        System.out.println(message);
-        return scanner.nextLine();
-    }
-
-    protected static int getInformationInt(String message, Scanner scanner) {
-        boolean isvalidEntry = false;
-        int number = -1;
-        while (!isvalidEntry) {
-            try {
-                System.out.println(message);
-                number = scanner.nextInt();
-                isvalidEntry = true;
-            } catch (Exception e) {
-                System.out.println("type it again");
-            }
-        }
-        return number;
-    }
-
-    protected static int getOptionMenu(Scanner scanner) {
-        int option = 0;
-        boolean isValidOption = false;
-        while (!isValidOption) {
-            System.out.println("Write the option");
-            System.out.println("1: Add at the last index");
-            System.out.println("2: Add at the specific index");
-            System.out.println("3: get contact by index");
-            System.out.println("4: get contact by contact");
-            System.out.println("5: get contact");
-            System.out.println("6: get contact of the last index");
-            System.out.println("7: remove by index");
-            System.out.println("8: remove contact");
-            System.out.println("9: get vector size");
-            System.out.println("10: clear vector");
-            System.out.println("11: print vector");
-            System.out.println("0: exit");
-
-            try {
-                option = scanner.nextInt();
-                isValidOption = option >= 0 && option <= 11;
-
-            } catch (Exception e) {
-                System.out.println("Select a right option");
-                scanner.nextLine();
-                isValidOption = false;
-            }
-
-        }
-        return option;
-    }
-
-    protected static void createManyContacts(int quantity, Lista<Contact> contactLista) {
+    protected static void createManyContacts(int quantity, ArrayList<Contact> contactLista) {
         Contact contact;
 
         for (int i = 1; i <= quantity; i++) {

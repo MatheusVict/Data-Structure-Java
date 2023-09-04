@@ -1,7 +1,6 @@
 package dev.matheusvictor.vetores.tests;
 
 import dev.matheusvictor.vetores.Lista;
-import dev.matheusvictor.vetores.ObjectVector;
 
 public class Class11 {
 
