@@ -22,4 +22,11 @@ public class Pilha<T> extends StaticStructure<T> {
     }
 
 
+    public T top() {
+        if (this.isEmpty()) return null;
+
+        return this.elements[size - 1];
+    }
+
+
 }
