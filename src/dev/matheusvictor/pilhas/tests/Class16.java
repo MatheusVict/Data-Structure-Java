@@ -13,5 +13,7 @@ public class Class16 {
         pilha.heap(5);
 
         System.out.println(pilha.top());
+        System.out.println(pilha.desempilha());
+        System.out.println(pilha);
     }
 }

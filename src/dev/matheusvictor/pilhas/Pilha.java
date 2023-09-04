@@ -28,5 +28,10 @@ public class Pilha<T> extends StaticStructure<T> {
         return this.elements[size - 1];
     }
 
+    public T desempilha() {
+        if (this.isEmpty()) return null;
+
+        return elements[--size];
+    }
 
 }
