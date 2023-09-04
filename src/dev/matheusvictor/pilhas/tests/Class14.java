@@ -12,5 +12,6 @@ public class Class14 {
 
         System.out.println(pilha);
         System.out.println(pilha.getSize());
+        System.out.println(pilha.isEmpty());
     }
 }

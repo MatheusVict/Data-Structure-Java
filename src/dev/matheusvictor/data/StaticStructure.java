@@ -60,6 +60,10 @@ public class StaticStructure<T> {
         }
     }
 
+    public boolean isEmpty() {
+        return this.size == 0;
+    }
+
     @Override
     public String toString() {
         return "StaticStructure{" +
