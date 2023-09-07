@@ -21,4 +21,18 @@ public class Fila<T> extends StaticStructure<T> {
         return this.elements[0];
     }
 
+    public T pop() {
+        if (this.isEmpty()) {
+            return null;
+        }
+
+        int index = 0;
+
+        T element = this.elements[index];
+
+        super.remove(element);
+
+        return element;
+    }
+
 }

@@ -50,6 +50,24 @@ public class StaticStructure<T> {
         return false;
     }
 
+    public void remove(T element) {
+        int elementIndex = this.search(element);
+
+        for (int i = elementIndex; i < size - 1; i++) {
+            this.elements[i] = this.elements[i + 1];
+        }
+        this.size--;
+    }
+
+    public int search(T element) {
+        for (int i = 0; i < this.size; i++) {
+            if (this.elements[i].equals(element)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     protected void increaseCapacity() {
         if (this.size == this.elements.length) {
             T[] NewsElements = (T[]) new Object[this.elements.length * 2];
