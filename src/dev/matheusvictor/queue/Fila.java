@@ -17,4 +17,8 @@ public class Fila<T> extends StaticStructure<T> {
         this.add(element);
     }
 
+    public T peek() {
+        return this.elements[0];
+    }
+
 }
