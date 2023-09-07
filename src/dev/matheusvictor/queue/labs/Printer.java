@@ -2,7 +2,7 @@ package dev.matheusvictor.queue.labs;
 
 import dev.matheusvictor.queue.Fila;
 
-public class Ex01 {
+public class Printer {
 
     public static void main(String[] args) {
         Fila<File> fileFila = new Fila<>();
