@@ -32,7 +32,7 @@ public class StaticStructure<T> {
 
     protected boolean add(int position, T element) {
         this.increaseCapacity();
-        if (!(position >= 0 && position < size)) {
+        if (!(position >= 0 && position <= size)) {
             throw new IllegalArgumentException("invalid position");
         }
 
